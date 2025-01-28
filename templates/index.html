@@ -41,5 +41,12 @@
         </tr>
         {% endfor %}
     </table>
+    <div class="statistics">
+    <h3>Statistics</h3>
+    <p><strong>Cheapest Car:</strong> {{ cheapest_car.brand }} {{ cheapest_car.model }} - ${{ cheapest_car.price }}</p>
+    <p><strong>Most Expensive Car:</strong> {{ most_expensive_car.brand }} {{ most_expensive_car.model }} - ${{ most_expensive_car.price }}</p>
+    <p><strong>Average Year of Cars:</strong> {{ avg_year }}</p>
+    <p><strong>Average Price of Cars:</strong> ${{ avg_price }}</p>
+    </div>
 </div>
 {% endblock %}

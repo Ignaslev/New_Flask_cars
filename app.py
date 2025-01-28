@@ -19,10 +19,17 @@ def home():
     search_text = request.args.get('search')
     if search_text:
         filtered_rows = Projektas.query.filter(Projektas.brand.ilike(f'{search_text}%'))
-        return render_template('index.html', projects=filtered_rows)
+
     else:
-        all_projects = Projektas.query.all()
-        return render_template('index.html', projects=all_projects)
+        filtered_rows = Projektas.query.all()
+
+    cheapest_car = Projektas.query.order_by(Projektas.price.asc()).first()
+    most_expensive_car = Projektas.query.order_by(Projektas.price.desc()).first()
+    avg_year = db.session.query(db.func.avg(Projektas.year)).scalar()
+    avg_price = db.session.query(db.func.avg(Projektas.price)).scalar()
+
+    return render_template('index.html', projects=filtered_rows, cheapest_car=cheapest_car,
+                           most_expensive_car=most_expensive_car, avg_year=avg_year, avg_price=avg_price)
 
 
 @app.route('/project/<int:row_id>')
