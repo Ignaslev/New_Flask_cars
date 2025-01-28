@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+    <h4>Add new car</h4>
+    <form action="/project/new" method="post">
+        <p>Car brand</p>
+        <p><input type="text" name="brandfield"></p>
+        <p>Model</p>
+        <p><input type="text" name="modelfield"></p>
+        <p>Year</p>
+        <p><input type="text" name="yearfield"></p>
+        <p>Price</p>
+        <p><input type="text" name="pricefield"></p>
+        <p>Image</p>
+        <p><input type="text" name="imagefield"></p>
+        <p><input type="submit" value="Save"></p>
+    </form>
+    <p><a href="/">Back to homepage</a></p>
+</div>
+{% endblock %}

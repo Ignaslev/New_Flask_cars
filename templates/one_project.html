@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+    <h4>ID {{ project.id }}. {{ project.brand }} {{ project.model }}</h4>
+
+    <p>Year: {{ project.year }}</p>
+    <p>Price: {{ project.price }}eur</p>
+    <p>Date added: {{ project.date }}</p>
+    {% if project.image %}
+    <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.brand }} {{ project.model }}" style="max-width: 400px; height: auto;">
+    {% else %}
+    <p>No image available</p>
+    {% endif %}
+    <p><a href="/">Back to homepage</a></p>
+</div>
+{% endblock %}

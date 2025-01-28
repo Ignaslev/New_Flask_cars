@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+    <h4>Edit {{ project.brand }} {{ project.model }} {{ project.year }} </h4>
+    <form action="" method="post">
+        <p>Car brand</p>
+        <p><input type="text" value="{{ project.brand }}" name="brandfield"></p>
+        <p>model</p>
+        <p><input type="text" value="{{ project.model }}" name="modelfield"></p>
+        <p>Year</p>
+        <p><input type="text" value="{{ project.year }}" name="yearfield"></p>
+        <p>Price</p>
+        <p><input type="text" value="{{ project.price }}" name="pricefield"></p>
+        <p>Image</p>
+        <p><input type="text" value="images/cars/{{ project.image }}" name="imagefield"></p>
+        <p><input type="submit" value="Save"></p>
+
+    </form>
+    <p><a href="/">Back to homepage</a></p>
+</div>
+{% endblock %}
